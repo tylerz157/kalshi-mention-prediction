@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Read(c:\\Users\\dotbo\\Documents\\Github\\kalshi-mention-prediction\\**)",
+      "Edit(c:\\Users\\dotbo\\Documents\\Github\\kalshi-mention-prediction\\**)",
+      "Write(c:\\Users\\dotbo\\Documents\\Github\\kalshi-mention-prediction\\**)",
+      "Glob(c:\\Users\\dotbo\\Documents\\Github\\kalshi-mention-prediction\\**)",
+      "Grep(c:\\Users\\dotbo\\Documents\\Github\\kalshi-mention-prediction\\**)"
+    ],
+    "deny": [
+      "Bash(rm *)",
+      "Bash(rm -rf*)",
+      "Bash(del *)",
+      "Bash(rmdir *)",
+      "Bash(rd *)"
+    ]
+  }
+}

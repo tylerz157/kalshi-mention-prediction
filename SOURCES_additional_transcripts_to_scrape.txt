@@ -1,0 +1,263 @@
+================================================================================
+ADDITIONAL SOURCES FOR TRUMP TRANSCRIPT SCRAPING
+================================================================================
+Compiled: February 26, 2026
+Purpose: Guide for obtaining additional raw transcript data for LLM fine-tuning
+to predict Trump speech patterns on Kalshi mention markets.
+
+PRIORITY: Q&A formats (gaggles, interviews, press conferences) > Informal remarks
+> Formal prepared speeches. Q&A formats produce the widest vocabulary range and
+most natural/unpredictable speech patterns -- critical for mention market prediction.
+
+================================================================================
+SOURCE 1: SENATE DEMOCRATS TRUMP TRANSCRIPTS (HIGHEST VALUE)
+================================================================================
+Base URL: https://www.democrats.senate.gov/newsroom/trump-transcripts
+Pages: 16 pages, approximately 300+ individual transcripts
+Coverage: January 2025 - February 2026 (ongoing, updated periodically)
+Original source: Roll Call's CQ Factbase transcription service
+Format: Individual HTML pages with clean transcript text
+
+HOW TO SCRAPE:
+- Paginate through: ?pagenum_rs=1 through ?pagenum_rs=16
+- Each page lists ~20 transcript links
+- Each individual transcript page contains clean text after the <h1> title
+- Text is between the [Video] link and the "Transcript courtesy of CQ Factbase" footer
+- Speaker labels: "President Trump:", "Question:", "Trump:", names for identified speakers
+
+HIGH-VALUE Q&A TRANSCRIPTS (partial list from index):
+- Air Force One gaggles (search "Air Force One" - dozens available)
+- Marine One departure gaggles (search "Marine One" - dozens available)
+- Oval Office reporter sprays (search "Oval Office")
+- Cabinet meeting open press portions
+- Post-event press availabilities
+
+SAMPLE INDIVIDUAL URLS (all confirmed accessible):
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-to-reporters-on-board-air-force-one-2626
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-to-reporters-on-board-air-force-one-13026
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-to-reporters-before-marine-one-departure-2626
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-to-reporters-on-board-air-force-one-103125
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-to-reporters-on-board-air-force-one-1426
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-to-reporters-before-marine-one-departure-12726
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-to-reporters-at-the-peoples-house-82225
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-holds-a-cabinet-meeting-at-the-white-house-12926
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-with-larry-kudlow-of-fox-business-2926
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-with-tom-llamas-of-nbc-news-2426
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-with-dan-bongino-on-his-podcast-2226
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-with-sid-rosenberg-of-wabc-radio-12726
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-addresses-a-reception-for-business-leaders-in-davos-12126
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-delivers-an-address-at-the-first-board-of-peace-meeting-in-davos-12226
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-delivers-an-address-on-the-economy-and-energy-in-clive-iowa-12726
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-discusses-his-plan-for-savings-accounts-for-children-12826
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-announces-efforts-to-combat-drug-addiction-12926
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-signs-bills-in-an-oval-office-ceremony-2326
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-signs-executive-orders-in-the-oval-office-13026
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-announces-the-launch-of-the-trumprx-website-2526
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-addresses-the-national-prayer-breakfast-at-the-capitol-2526
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-signs-bills-in-an-oval-office-ceremony-2226
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-remarks-at-fort-bragg-for-the-250th-anniversary-of-the-us-army-61025
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-remarks-at-a-white-house-faith-office-luncheon-71425
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-announces-the-2025-kennedy-center-honorees-81325
+https://www.democrats.senate.gov/newsroom/trump-transcripts/transcript-president-trump-speaks-to-reporters-outside-a-wedding-at-mar-a-lago-2126
+
+INTERVIEW TRANSCRIPTS (highest value for rare mentions):
+- Larry Kudlow, Fox Business (2/9/26)
+- Tom Llamas, NBC News (2/4/26)
+- Dan Bongino podcast (2/2/26)
+- Sid Rosenberg, WABC Radio (1/27/26)
+
+================================================================================
+SOURCE 2: REV.COM TRANSCRIPT LIBRARY
+================================================================================
+URL: https://www.rev.com/category/donald-trump
+Coverage: 2015-2026 (speeches, rallies, interviews, debates)
+Format: Clean text transcripts with speaker labels and timestamps
+Access: Free to read on website
+
+KEY CONTENT:
+- 2024 campaign rally transcripts (dozens of rallies, 60-90 min each)
+- 2024 presidential debate transcripts
+- 2025 Address to Joint Session of Congress (March 4, 2025) - FULL
+  URL: https://www.rev.com/blog/transcripts (search for Trump Congress 2025)
+- Joe Rogan podcast interview (2024) - extremely long, informal
+- Various TV interviews (Fox News, NBC, CBS, etc.)
+- Press conferences
+- 2020 campaign rallies
+- First term major speeches
+
+SCRAPING NOTES:
+- Rev.com has anti-scraping measures; may need to use their API or manual download
+- Transcripts include timestamps that can be stripped
+- Speaker labels are consistent: "Donald Trump: (HH:MM)"
+
+================================================================================
+SOURCE 3: FACTBASE / ROLL CALL
+================================================================================
+URL: https://rollcall.com/factbase/trump/
+Coverage: Complete second term, partial first term
+Format: Machine-generated transcripts from official video/audio
+Access: Free, searchable database
+
+THIS IS THE UPSTREAM SOURCE for Senate Democrats transcripts.
+Contains additional transcripts not yet posted to Senate Democrats page.
+Searchable by date, keyword, and event type.
+
+Sample transcript URL pattern:
+https://rollcall.com/factbase/trump/transcript/donald-trump-press-gaggle-air-force-one-february-6-2026/
+https://rollcall.com/factbase/trump/transcript/donald-trump-press-gaggle-before-marine-one-departure-february-6-2026/
+https://rollcall.com/factbase/sotu/transcript/trump-sotu-20260224/
+
+================================================================================
+SOURCE 4: THE AMERICAN PRESIDENCY PROJECT (UCSB)
+================================================================================
+URL: https://www.presidency.ucsb.edu/people/president/donald-j-trump
+Coverage: All official presidential documents, both terms
+Format: Clean text, well-structured
+Access: Free, academic resource
+
+CONTAINS:
+- All executive orders (text of signing statements)
+- Weekly radio addresses
+- Press conferences (formal)
+- Remarks at bill signings
+- Statements on legislation
+- Proclamations
+- Messages to Congress
+
+Particularly valuable for formal/semi-formal remarks that include
+audience interaction and ad-libs noted in brackets.
+
+================================================================================
+SOURCE 5: C-SPAN VIDEO ARCHIVES
+================================================================================
+URL: https://www.c-span.org/search/?query=trump
+Coverage: All public appearances captured by C-SPAN
+Format: Video with closed captions (extractable as text)
+Access: Free
+
+HOW TO EXTRACT:
+- C-SPAN provides closed caption text that can be scraped
+- Coverage includes events not transcribed elsewhere
+- Rally speeches, town halls, bilateral meetings, signing ceremonies
+
+================================================================================
+SOURCE 6: WHITE HOUSE OFFICIAL TRANSCRIPTS
+================================================================================
+URL: https://www.whitehouse.gov/remarks/
+NOTE: As of late May 2025, the White House has been removing transcripts.
+Limited selection remains. However, cached/archived versions may be available via:
+- Internet Archive Wayback Machine: https://web.archive.org/web/*/whitehouse.gov/remarks/*
+- Google Cache
+
+FIRST TERM ARCHIVES (complete):
+https://trumpwhitehouse.archives.gov/remarks/
+- Contains all first-term transcripts (2017-2021)
+- Well-structured, official text
+- Includes audience reactions in parentheses
+
+================================================================================
+SOURCE 7: MAJOR NEWS OUTLET TRANSCRIPTS
+================================================================================
+
+PBS NewsHour:
+- 2026 SOTU: https://www.pbs.org/newshour/politics/read-trumps-full-2026-state-of-the-union-address
+- Regular transcript publications for major speeches
+
+CBS News:
+- Inaugural: https://www.cbsnews.com/news/transcript-trump-inauguration-speech-2025/
+- SOTU 2026: https://www.cbsnews.com/news/state-of-the-union-2026-transcript/
+
+NPR:
+- Annotated fact-checks contain full transcript text
+- https://www.npr.org/2026/02/24/nx-s1-5716277/trump-state-union-fact-check
+
+Associated Press:
+- Primary transcription source for major addresses
+- Distributed via partner outlets (PBS, CBS, etc.)
+
+TIME Magazine:
+- 2025 Congress speech: https://time.com/7264688/trump-speech-congress-2025-transcript/
+- 2026 SOTU: https://time.com/7381059/donald-trump-state-of-the-union-full-speech-transcript/
+- 100 Days interview transcript
+
+================================================================================
+SOURCE 8: PODCAST/LONG-FORM INTERVIEW TRANSCRIPTS
+================================================================================
+
+These are extremely valuable for rare vocabulary and natural speech:
+
+- Joe Rogan Experience #2219 (October 2024) ~3 hours
+  Multiple transcript sources available, search "Trump Rogan transcript"
+- Lex Fridman podcast interview
+- Logan Paul/Impaulsive podcast
+- Theo Von podcast
+- Various Fox News long-form interviews (Hannity, Ingraham, etc.)
+- Newsmax interviews
+- OAN interviews
+
+================================================================================
+SOURCE 9: FIRST TERM KEY SPEECHES (for base vocabulary model)
+================================================================================
+
+These establish baseline speech patterns:
+
+- 2017 Inaugural Address
+- 2018 State of the Union
+- 2019 State of the Union
+- 2020 State of the Union
+- 2020 RNC Convention Speech
+- 2017 Address to Joint Session of Congress
+- UN General Assembly addresses (2017, 2018, 2019, 2020)
+- NATO summit press conferences
+- G7/G20 press conferences
+- COVID-19 daily briefings (March-April 2020) - dozens of long Q&A sessions
+- 2020 campaign rallies (Rev.com has most)
+- First term farewell address (Jan 2021)
+  URL: https://trumpwhitehouse.archives.gov/farewell-address/
+
+================================================================================
+SOURCE 10: 2024 CAMPAIGN TRANSCRIPTS
+================================================================================
+
+Campaign speeches have the most informal, improvisational style:
+
+- RNC 2024 Convention speech (Milwaukee, July 2024)
+- 2024 Presidential debates (CNN June, ABC September)
+- Major rally transcripts (Rev.com, Factbase)
+- Town halls
+- Victory speech (Nov 6, 2024)
+  URL: https://www.newsweek.com/donald-trump-victory-speech-full-transcript-1981234
+
+================================================================================
+SCRAPING STRATEGY RECOMMENDATIONS
+================================================================================
+
+1. START WITH Senate Democrats archive - it's the richest single source
+   with 300+ transcripts all in consistent format. Write a scraper that:
+   a) Paginates through all 16 index pages
+   b) Extracts individual transcript URLs
+   c) Fetches each transcript page
+   d) Extracts text between [Video] marker and "Transcript courtesy" footer
+   e) Saves with metadata (date, event type, format)
+
+2. SUPPLEMENT WITH Rev.com for 2024 campaign rallies and interviews
+
+3. ADD first-term speeches from Trump White House Archives for baseline
+
+4. PRIORITIZE by format:
+   - Q&A gaggles and press conferences (highest prediction value)
+   - Long-form interviews and podcasts (rare vocabulary)
+   - Rally speeches (informal, improvisational)
+   - Formal addresses (prepared text, less variation)
+
+5. TAG each transcript with:
+   - Date
+   - Event type (gaggle, rally, interview, formal_speech, etc.)
+   - Topics discussed
+   - Format (Q&A, monologue, mixed)
+   - Approximate word count
+   - Whether prepared/teleprompter or improvisational
+
+================================================================================
+END OF SOURCES DOCUMENT
+================================================================================
