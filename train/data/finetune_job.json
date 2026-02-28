@@ -1,0 +1,7 @@
+{
+  "job_id": "ftjob-HZaWcAnAO57KBciRD1ylGtDm",
+  "train_file_id": "file-9vBtLjLYxTL64qRR9wHQ4k",
+  "val_file_id": "file-4xP3FXV6QpN5NpCwQVFkRj",
+  "model": "gpt-4o-mini-2024-07-18",
+  "n_epochs": 1
+}
