@@ -25,9 +25,8 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     EarlyStoppingCallback,
-    TrainingArguments,
 )
-from trl import SFTTrainer, DataCollatorForCompletionOnlyLM
+from trl import SFTTrainer, SFTConfig
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
@@ -87,7 +86,7 @@ def main():
     print(f"Loading model: {MODEL_ID}")
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_ID,
-        torch_dtype=torch.bfloat16,
+        dtype=torch.bfloat16,
         token=os.environ.get("HF_TOKEN"),
         use_cache=False,          # required for gradient checkpointing
     )
@@ -95,7 +94,7 @@ def main():
 
     # Training arguments
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    args = TrainingArguments(
+    args = SFTConfig(
         output_dir=str(OUTPUT_DIR),
         num_train_epochs=NUM_EPOCHS,
         per_device_train_batch_size=PER_GPU_BATCH,
@@ -120,13 +119,10 @@ def main():
         gradient_checkpointing=True,
         dataloader_num_workers=4,
         remove_unused_columns=False,
-    )
-
-    # Only train on assistant responses (not the prompt tokens)
-    response_template = "<|start_header_id|>assistant<|end_header_id|>"
-    collator = DataCollatorForCompletionOnlyLM(
-        response_template=response_template,
-        tokenizer=tokenizer,
+        # SFT-specific: only compute loss on assistant tokens
+        max_length=MAX_SEQ_LEN,
+        dataset_text_field="text",
+        completion_only_loss=True,
     )
 
     trainer = SFTTrainer(
@@ -134,10 +130,7 @@ def main():
         args=args,
         train_dataset=train_dataset,
         eval_dataset=val_dataset,
-        data_collator=collator,
-        max_seq_length=MAX_SEQ_LEN,
-        dataset_text_field="text",
-        tokenizer=tokenizer,
+        processing_class=tokenizer,
         callbacks=[EarlyStoppingCallback(early_stopping_patience=3)],
     )
 
